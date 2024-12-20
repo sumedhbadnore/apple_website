@@ -91,11 +91,17 @@ const VideoCarousel = () => {
 
       // update the progress bar
       const animUpdate = () => {
-        anim.progress(
-          videoRef.current[videoId].currentTime /
-            hightlightsSlides[videoId].videoDuration
-        );
+        if (
+          videoRef.current[videoId] &&
+          hightlightsSlides[videoId].videoDuration
+        ) {
+          anim.progress(
+            videoRef.current[videoId].currentTime /
+              hightlightsSlides[videoId].videoDuration
+          );
+        }
       };
+      
 
       if (isPlaying) {
         // ticker to update the progress bar
